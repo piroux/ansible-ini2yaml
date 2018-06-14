@@ -6,9 +6,20 @@ This repository contains a Python script for converting Ansible inventories in I
 Usage
 -----
 
-The script is implemented as a filter:
+```console
+$ ./ini2yaml -h
+usage: ini2yaml [-h] [-m {inventory,flat}] [-d] ini_filepath
 
-    ini2yaml <inventory >inventory.yaml
+Read a INI file and print it converted to a YAML format on stdout
 
-Ansible 2.4.1 or later automatically recognizes the inventory format so the `.yaml` file extension can be omitted,
-also allowing the default `/etc/ansible/hosts` inventory to be in YAML format.
+positional arguments:
+  ini_filepath          File path of the source INI file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -m {inventory,flat}, --mode {inventory,flat}
+                        Mode chosen for the final YAML file
+  -d, --disable-default-section
+                        Add one default section (required if the INI source
+                        file is section-less)
+```
